@@ -1,0 +1,39 @@
+<html lang="ru">
+<head>
+    <title>Lab1</title>
+    <link rel="stylesheet" href="/static/styles/index_style2.css">
+</head>
+<body>
+    <header>
+        <img src="/static/img/image2.png" alt="Молния">
+        <h1>Вычисление мощности ИБП</h1>
+    </header>
+    
+    <h1>Устройства</h1>
+
+    
+    <form class="search-form" action="/" method="GET">
+        <input type="text" name="query" placeholder="Поиск компонентов" value="{{ .query }}">
+        <button type="submit">Найти</button>
+    </form>
+    
+    <div class="devices-container">
+        {{ range .orders}}
+        <div class="card">
+            <img src="{{ .Image }}" alt="Изображние" class="card-image">
+            <div class="card-title">{{ .Title}}</div>
+            <div class="card-power">Мощность ~ {{ .Power}} Вт</div>
+            <div class="card-coeff">Коэффициент мощности ~ {{ .Coeff}} </div>
+            <div class="card-actions">
+                <a href="/order/{{ .ID }}" class="btn-details">Подробнее</a>
+                <button class="btn-add">В заявку</button>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+    
+    <a href="/trash" class="trash-button">
+        <div class="trash-count">{{len .trash.Components}}</div>
+    </a>
+</body>
+</html>

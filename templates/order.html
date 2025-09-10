@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Вычисление мощности ИБП</title>
+    <link rel="stylesheet" href="/static/styles/order_style2.css">>
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/static/img/image2.png" alt="home"></a>
+        <h1>Вычисление мощности ИБП</h1>
+    </header>
+    
+    <main class="device-details">
+        <h2 class="device-title">{{ .order.Title }}</h2>
+        
+        <div class="device-content">
+            <div class="device-image">
+                <img src="{{ .order.Image }}" alt="Изображение">
+            </div>
+            
+            <div class="device-info">
+                <div class="device-specs">
+                    <p class="device-power">Мощность ~{{ .order.Power }} Вт</p>
+                    <p class="device-coeff">Коэффициент мощности ~{{ .order.Coeff }}</p>
+                </div>
+                
+                <div class="device-note">
+                    <p>Коэффициент мощности производители указывают в инструкции к устройству. Если данная величина не указана в технической документации, можно воспользоваться средними значениями.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
